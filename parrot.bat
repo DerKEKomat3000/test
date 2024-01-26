@@ -1,3 +1,5 @@
+#!/bin/bash
+
 @echo off
 setlocal enabledelayedexpansion
 
