@@ -23,7 +23,7 @@ if not exist "%BGImagePath%" (
 
 rem Set the desktop background
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "%BGImagePath%" /f
-timeout /t 1 /nobreak >nul
+timeout /t 2 /nobreak >nul
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 
 rem Add a delay of 5 seconds (adjust as needed)
