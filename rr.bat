@@ -6,8 +6,20 @@ set BGImagePath=%UserDownloadsPath%\rick.png
 rem Download the image using curl
 curl -o "%BGImagePath%" "%GitHubRepoURL%"
 
-rem Add a delay of 5 seconds (adjust as needed)
-timeout /t 1 /nobreak >nul
+rem Wait until the file is downloaded or timeout after 10 seconds
+set TIMEOUT_SECONDS=10
+set WAIT_SECONDS=0
+
+:WAIT_LOOP
+if not exist "%BGImagePath%" (
+    timeout /t 1 /nobreak >nul
+    set /A WAIT_SECONDS+=1
+    if %WAIT_SECONDS% gtr %TIMEOUT_SECONDS% (
+        echo Error: Image download timeout.
+        exit /b 1
+    )
+    goto :WAIT_LOOP
+)
 
 rem Set the desktop background
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "%BGImagePath%" /f
