@@ -8,7 +8,7 @@ curl -o "%BGImagePath%" "%GitHubRepoURL%"
 
 rem Wait until the file is downloaded or timeout after 10 seconds
 set TIMEOUT_SECONDS=10
-set WAIT_SECONDS=0
+set WAIT_SECONDS=2
 
 :WAIT_LOOP
 if not exist "%BGImagePath%" (
@@ -23,10 +23,11 @@ if not exist "%BGImagePath%" (
 
 rem Set the desktop background
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "%BGImagePath%" /f
+timeout /t 1 /nobreak >nul
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 
 rem Add a delay of 5 seconds (adjust as needed)
-timeout /t 10 /nobreak >nul
+timeout /t 1 /nobreak >nul
 
 rem Remove the downloaded image
 del "%BGImagePath%"
