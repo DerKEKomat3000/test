@@ -6,6 +6,12 @@ set BGImagePath=%UserDownloadsPath%\rick.png
 rem Download the image using curl
 curl -o "%BGImagePath%" "%GitHubRepoURL%"
 
+rem Add a delay of 5 seconds (adjust as needed)
+timeout /t 5 /nobreak >nul
+
 rem Set the desktop background
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "%BGImagePath%" /f
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+
+rem Remove the downloaded image
+del "%BGImagePath%"
