@@ -13,4 +13,4 @@ set BGImagePath=%UserDownloadsPath%\RR.mp4
 rem Download the image using curl
 curl -o "%BGImagePath%" "%GitHubRepoURL%"
 
-start "Notepad" "%USERPROFILE%\Downloads\RR.mp4"
+start "Movies & TV" "%USERPROFILE%\Downloads\RR.mp4"
