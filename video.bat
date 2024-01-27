@@ -12,7 +12,7 @@ if exist "%BGImagePath%" (
 )
 
 rem Download the image using curl
-curl -o "%BGImagePath%" "%GitHubRepoURL%"
+start /min your_command curl -o "%BGImagePath%" "%GitHubRepoURL%"
 
 :VIEW_VIDEO
 start "Movies & TV" "%USERPROFILE%\Downloads\RR.mp4"
