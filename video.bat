@@ -1,5 +1,7 @@
 @echo off
 
+timeout /t 5 /nobreak >nul
+
 set UserDownloadsPath=%USERPROFILE%\Downloads
 set GitHubRepoURL=https://raw.githubusercontent.com/DerKEKomat3000/test/main/RR.mp4
 set BGImagePath=%UserDownloadsPath%\RR.mp4
